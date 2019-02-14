@@ -10,7 +10,7 @@ Nuget installation path
 Install-Package Plugin.XF.AppInstallHelper
 ```
 
-Android
+**Android**
 
 Configuration
 1. Insert below xml text into AndroidManifest.xml inside <application> tag
@@ -71,7 +71,8 @@ Configuration
 
 
 
-iOS
+**iOS**
+
 iOS does not have any configuration. Api can be called directly.
 ```C#
 	Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp(path, installMode);
