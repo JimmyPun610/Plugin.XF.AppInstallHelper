@@ -37,5 +37,5 @@ Android
 
 4. Call the installation API
 ```C#
-Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp(path, Plugin.XF.AppInstallHelper.Abstractions.InstallMode.OutOfAppStore);
+Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp(path, installMode);
 ```
