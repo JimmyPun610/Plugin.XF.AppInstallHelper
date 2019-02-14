@@ -10,7 +10,7 @@ Nuget installation path
 Install-Package Plugin.XF.AppInstallHelper
 ```
 
-###Android###
+### Android
 
 **Configuration**
 1. Insert below xml text into AndroidManifest.xml inside <application> tag
@@ -64,14 +64,37 @@ Install-Package Plugin.XF.AppInstallHelper
    }
 ```
 
-###iOS###
+### iOS
 
 iOS does not have any configuration. Api can be called directly.
 
-###Calling the API###
+### Calling the API
 
-The input path can be various. please follow below guide.
-
+The input path can be various. please follow below guide. Return bool which means the installation is triggered or not. It does not means installtion success.
+**Android(APK file)**
+APK file must located in external storage, otherwise, parse error will occur.
+Pass the full file path to API. Install mode as _OutOfAppStore_
 ```C#
-	Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp(path, installMode);
+            string apkPath = System.IO.Path.Combine(Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).AbsolutePath, "APK.APK");
+	Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp(apkPath, Plugin.XF.AppInstallHelper.Abstractions.InstallMode.OutOfAppStore);
+```
+**Android(Play store)**
+Pass the package name to API. Install mode as _AppStore_
+E.g. For the App chrome with play store url : https://play.google.com/store/apps/details?id=com.android.chrome
+Api parameter is _com.android.chrome_
+```C#
+	Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp("com.android.chrome", Plugin.XF.AppInstallHelper.Abstractions.InstallMode.AppStore);
+```
+
+**iOS(Enterprise distribution or plist)**
+Pass the full itms-service url into API. make sure the plist is under **https**. Simulator is unavailable.
+```C#
+   await Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp("itms-services:///?action=download-manifest&url=https://{iOS_app}.plist", Plugin.XF.AppInstallHelper.Abstractions.InstallMode.OutOfAppStore);
+```
+
+**iOS(App store)**
+Pass the Id the Api. E.g. App store url is https://itunes.apple.com/us/app/apple-store/id375380948?mt=8.
+The API call should be
+```C#
+	Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp("375380948", Plugin.XF.AppInstallHelper.Abstractions.InstallMode.AppStore);
 ```
