@@ -48,7 +48,6 @@ https://github.com/jamesmontemagno/CurrentActivityPlugin
 
 3. In MainActivity.cs, initialze the library with your file provider authorities
 ```C#
-  Plugin.CurrentActivity.CrossCurrentActivity.Current.Init(this, bundle);
   Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.Init("{packagename}.fileprovider");
 ```
 
