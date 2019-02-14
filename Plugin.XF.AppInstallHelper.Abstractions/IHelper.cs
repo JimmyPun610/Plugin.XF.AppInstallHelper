@@ -34,6 +34,6 @@ namespace Plugin.XF.AppInstallHelper.Abstractions
         /// </summary>
         /// <param name="path"></param>
         /// <param name="installMode"></param>
-        void InstallApp(string path, InstallMode installMode);
+        Task<bool> InstallApp(string path, InstallMode installMode);
     }
 }

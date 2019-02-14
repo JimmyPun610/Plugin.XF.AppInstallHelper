@@ -16,7 +16,7 @@ namespace Plugin.XF.AppInstallHelper.Abstractions
             _fileProviderAuthorities = fileProviderAuthorities;
         }
 
-        public virtual void InstallApp(string path, InstallMode installMode)
+        public virtual async Task<bool> InstallApp(string path, InstallMode installMode)
         {
             throw new NotImplementedException();
         }

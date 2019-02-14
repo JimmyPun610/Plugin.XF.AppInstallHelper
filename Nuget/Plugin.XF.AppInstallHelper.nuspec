@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Plugin.XF.AppInstallHelper</id>
-    <version>1.0.0.3</version>
+    <version>1.0.0.4</version>
     <authors>Jimmy Pun</authors>
     <owners>Jimmy Pun</owners>
     <licenseUrl>https://github.com/JimmyPun610/Plugin.XF.AppInstallHelper</licenseUrl>
@@ -10,9 +10,27 @@
     <iconUrl>https://banner2.kisspng.com/20180713/olo/kisspng-nuget-net-framework-package-manager-software-repo-nuget-5b487dc3ba81a7.452233091531477443764.jpg</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Xamarin Form helper for install application</description>
-    <releaseNotes>1.0.0.3 Permission handling</releaseNotes>
+    <releaseNotes>1.0.0.4 Permission handling and iOS enabled</releaseNotes>
     <copyright>Copyright 2019</copyright>
     <tags>Xamarin Xamarin-Forms</tags>
+	<dependencies>
+		<group targetFramework="netstandard2.0">
+			<!--MonoAndroid dependencies go here-->
+			<dependency id="Xamarin.Essentials" version="1.0.1" />
+			<dependency id="Plugin.Permissions" version="3.0.0.12" />
+		</group>
+		<group targetFramework="Xamarin.iOS10">
+			<!--MonoAndroid dependencies go here-->
+			<dependency id="Xamarin.Essentials" version="1.0.1" />
+			<dependency id="Plugin.Permissions" version="3.0.0.12" />
+		</group>
+		<group targetFramework="MonoAndroid">
+			<!--MonoAndroid dependencies go here-->
+			<dependency id="Plugin.CurrentActivity" version="2.1.0.4" />
+			<dependency id="Xamarin.Essentials" version="1.0.1" />
+			<dependency id="Plugin.Permissions" version="3.0.0.12" />
+		</group>
+	</dependencies>
   </metadata>
     <!-- Insert below <metadata> element -->
 	<files>
