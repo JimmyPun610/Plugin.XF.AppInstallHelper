@@ -10,9 +10,9 @@ Nuget installation path
 Install-Package Plugin.XF.AppInstallHelper
 ```
 
-**Android**
+###Android###
 
-Configuration
+**Configuration**
 1. Insert below xml text into AndroidManifest.xml inside <application> tag
   
 ``` xml
@@ -64,16 +64,14 @@ Configuration
    }
 ```
 
-4. Call the installation API
-```C#
-	Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp(path, installMode);
-```
-
-
-
-**iOS**
+###iOS###
 
 iOS does not have any configuration. Api can be called directly.
+
+###Calling the API###
+
+The input path can be various. please follow below guide.
+
 ```C#
 	Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp(path, installMode);
 ```
