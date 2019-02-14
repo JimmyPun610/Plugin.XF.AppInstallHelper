@@ -71,6 +71,7 @@ iOS does not have any configuration. Api can be called directly.
 ### Calling the API
 
 The input path can be various. please follow below guide. Return bool which means the installation is triggered or not. It does not means installtion success.
+
 **Android(APK file)**
 APK file must located in external storage, otherwise, parse error will occur.
 Pass the full file path to API. Install mode as _OutOfAppStore_
