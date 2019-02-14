@@ -6,7 +6,6 @@ using Android.Support.V4.App;
 using Android.Support.V4.Content;
 using Android.Widget;
 using Plugin.CurrentActivity;
-using Plugin.Permissions.Abstractions;
 using Plugin.XF.AppInstallHelper.Abstractions;
 using System;
 using System.Threading.Tasks;
