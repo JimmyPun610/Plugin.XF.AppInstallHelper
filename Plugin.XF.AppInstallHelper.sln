@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.XF.AppInstallHelper", "Plugin.XF.AppInstallHelper\Plugin.XF.AppInstallHelper.csproj", "{DAF5BE0B-924C-4808-8209-01A7762BBD00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.XF.AppInstallHelper.Abstractions", "Plugin.XF.AppInstallHelper.Abstractions\Plugin.XF.AppInstallHelper.Abstractions.csproj", "{598CF1CC-6DAF-465A-ADC0-EC2DA7B08F06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.XF.AppInstallHelper.Android", "Plugin.XF.AppInstallHelper.Android\Plugin.XF.AppInstallHelper.Android.csproj", "{D3E706A9-E4EC-4C1B-A8E0-E4F14255E832}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.XF.AppInstallHelper.iOS", "Plugin.XF.AppInstallHelper.iOS\Plugin.XF.AppInstallHelper.iOS.csproj", "{E71F3053-056C-4381-9638-048ED73BDFF6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DAF5BE0B-924C-4808-8209-01A7762BBD00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAF5BE0B-924C-4808-8209-01A7762BBD00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAF5BE0B-924C-4808-8209-01A7762BBD00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAF5BE0B-924C-4808-8209-01A7762BBD00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{598CF1CC-6DAF-465A-ADC0-EC2DA7B08F06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{598CF1CC-6DAF-465A-ADC0-EC2DA7B08F06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{598CF1CC-6DAF-465A-ADC0-EC2DA7B08F06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{598CF1CC-6DAF-465A-ADC0-EC2DA7B08F06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3E706A9-E4EC-4C1B-A8E0-E4F14255E832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3E706A9-E4EC-4C1B-A8E0-E4F14255E832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3E706A9-E4EC-4C1B-A8E0-E4F14255E832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3E706A9-E4EC-4C1B-A8E0-E4F14255E832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E71F3053-056C-4381-9638-048ED73BDFF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E71F3053-056C-4381-9638-048ED73BDFF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E71F3053-056C-4381-9638-048ED73BDFF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E71F3053-056C-4381-9638-048ED73BDFF6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EEF6A836-2910-4A95-9FDE-86946C1BDC59}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Plugin.XF.AppInstallHelper</id>
+    <version>1.0.0</version>
+    <authors>Jimmy Pun</authors>
+    <owners>Jimmy Pun</owners>
+    <licenseUrl>https://github.com/JimmyPun610/Plugin.XF.AppInstallHelper</licenseUrl>
+    <projectUrl>https://github.com/JimmyPun610/Plugin.XF.AppInstallHelper</projectUrl>
+    <iconUrl>https://banner2.kisspng.com/20180713/olo/kisspng-nuget-net-framework-package-manager-software-repo-nuget-5b487dc3ba81a7.452233091531477443764.jpg</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Xamarin Form helper for install application</description>
+    <releaseNotes>1.0.0 Work on Android for now. iOS not ready</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>Xamarin Xamarin-Forms</tags>
+    <dependencies>
+
+    </dependencies>
+  </metadata>
+    <!-- Insert below <metadata> element -->
+	<files>
+    <!-- Cross-platform reference assemblies -->
+		<file src="Plugin.XF.AppInstallHelper\bin\Release\*.dll" target="lib\netstandard2.0" />
+		<file src="Plugin.XF.AppInstallHelper.Abstractions\bin\Release\*.dll" target="lib\netstandard2.0" />
+		<file src="Plugin.XF.AppInstallHelper.iOS\bin\Release\*.dll" target="lib\xamarin.ios10" />
+		<file src="Plugin.XF.AppInstallHelper.Android\bin\Release\*.dll" target="lib\monoandroid81" />
+	</files>
+</package>
