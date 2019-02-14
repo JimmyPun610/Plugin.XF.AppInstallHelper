@@ -8,6 +8,11 @@ Install-Package Plugin.XF.AppInstallHelper
 ```
 
 Android
+
+Pre-requisite
+1. Make sure application has switch on permission READ_EXTERNAL_STORAGE, otherwise, it will not work
+
+Configuration
 1. Insert below xml text into AndroidManifest.xml inside <application> tag
   
 ``` xml
@@ -41,7 +46,6 @@ Android
 
 3. In MainActivity.cs, initialze the library with your file provider authorities
 ```C#
-  Plugin.CurrentActivity.CrossCurrentActivity.Current.Init(this, bundle);
   Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.Init("{packagename}.fileprovider");
 ```
 
