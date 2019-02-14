@@ -11,10 +11,8 @@ Android
 
 Pre-requisite
 1. Make sure application has switch on permission READ_EXTERNAL_STORAGE, otherwise, it will not work
-```
-https://github.com/jamesmontemagno/CurrentActivityPlugin
-```
 
+Configuration
 1. Insert below xml text into AndroidManifest.xml inside <application> tag
   
 ``` xml
