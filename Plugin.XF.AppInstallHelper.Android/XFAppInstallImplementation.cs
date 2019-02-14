@@ -4,6 +4,7 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Support.V4.App;
 using Android.Support.V4.Content;
+using Android.Widget;
 using Plugin.CurrentActivity;
 using Plugin.XF.AppInstallHelper.Abstractions;
 using System;
@@ -33,10 +34,15 @@ namespace Plugin.XF.AppInstallHelper
         {
             if(installMode == InstallMode.OutOfAppStore)
             {
-                if(Build.VERSION.SdkInt >= BuildVersionCodes.M)
+                bool permissionGranted = true;
+                if (Build.VERSION.SdkInt >= BuildVersionCodes.M)
+                    //Android 6.0 Upper
+                    permissionGranted = ContextCompat.CheckSelfPermission(Android.App.Application.Context, Manifest.Permission.ReadExternalStorage) == (int)Permission.Granted;
+                if (permissionGranted)
                 {
-                    if(ContextCompat.CheckSelfPermission(Android.App.Application.Context, Manifest.Permission.ReadExternalStorage) == (int)Permission.Granted)
+                    if (Build.VERSION.SdkInt >= BuildVersionCodes.N)
                     {
+
                         Java.IO.File file = new Java.IO.File(path);
                         Android.Net.Uri apkUri = FileProvider.GetUriForFile(Android.App.Application.Context,
                         this._fileProviderAuthorities, file);
@@ -55,11 +61,8 @@ namespace Plugin.XF.AppInstallHelper
                             Android.App.Application.Context.StartActivity(intent);
                         }
                     }
-                    else
-                    {
-                        ActivityCompat.RequestPermissions(CrossCurrentActivity.Current.Activity, new string[] { Manifest.Permission.ReadExternalStorage }, 100);
-                    }
-                }   
+                }
+                else Toast.MakeText(Android.App.Application.Context, "Storage permission required.", ToastLength.Long).Show();     
             }else if(installMode == InstallMode.AppStore)
             {
                 Intent intent = new Intent(Intent.ActionView);
