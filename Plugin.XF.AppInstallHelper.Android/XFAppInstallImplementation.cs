@@ -1,6 +1,10 @@
-﻿using Android.Content;
+﻿using Android;
+using Android.Content;
+using Android.Content.PM;
 using Android.OS;
+using Android.Support.V4.App;
 using Android.Support.V4.Content;
+using Plugin.CurrentActivity;
 using Plugin.XF.AppInstallHelper.Abstractions;
 using System;
 
@@ -29,24 +33,33 @@ namespace Plugin.XF.AppInstallHelper
         {
             if(installMode == InstallMode.OutOfAppStore)
             {
-                Java.IO.File file = new Java.IO.File(path);
-                Android.Net.Uri apkUri = FileProvider.GetUriForFile(Android.App.Application.Context,
-                this._fileProviderAuthorities, file);
-
-                if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.N)
+                if(Build.VERSION.SdkInt >= BuildVersionCodes.M)
                 {
-                    Intent intent = new Intent(Intent.ActionInstallPackage);
-                    intent.SetData(apkUri);
-                    intent.SetFlags(ActivityFlags.GrantReadUriPermission);
-                    Android.App.Application.Context.StartActivity(intent);
-                }
-                else
-                {
-                    Intent intent = new Intent(Intent.ActionView);
-                    intent.SetDataAndType(apkUri, "application/vnd.android.package-archive");
-                    intent.SetFlags(ActivityFlags.NewTask);
-                    Android.App.Application.Context.StartActivity(intent);
-                }
+                    if(ContextCompat.CheckSelfPermission(Android.App.Application.Context, Manifest.Permission.ReadExternalStorage) == (int)Permission.Granted)
+                    {
+                        Java.IO.File file = new Java.IO.File(path);
+                        Android.Net.Uri apkUri = FileProvider.GetUriForFile(Android.App.Application.Context,
+                        this._fileProviderAuthorities, file);
+                        if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.N)
+                        {
+                            Intent intent = new Intent(Intent.ActionInstallPackage);
+                            intent.SetData(apkUri);
+                            intent.SetFlags(ActivityFlags.GrantReadUriPermission);
+                            Android.App.Application.Context.StartActivity(intent);
+                        }
+                        else
+                        {
+                            Intent intent = new Intent(Intent.ActionView);
+                            intent.SetDataAndType(apkUri, "application/vnd.android.package-archive");
+                            intent.SetFlags(ActivityFlags.NewTask);
+                            Android.App.Application.Context.StartActivity(intent);
+                        }
+                    }
+                    else
+                    {
+                        ActivityCompat.RequestPermissions(CrossCurrentActivity.Current.Activity, new string[] { Manifest.Permission.ReadExternalStorage }, 100);
+                    }
+                }   
             }else if(installMode == InstallMode.AppStore)
             {
                 Intent intent = new Intent(Intent.ActionView);
