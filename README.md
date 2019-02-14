@@ -8,6 +8,13 @@ Install-Package Plugin.XF.AppInstallHelper
 ```
 
 Android
+
+Pre-requisite
+1. Install CrossCurrentActivity plugin
+```
+https://github.com/jamesmontemagno/CurrentActivityPlugin
+```
+
 1. Insert below xml text into AndroidManifest.xml inside <application> tag
   
 ``` xml
