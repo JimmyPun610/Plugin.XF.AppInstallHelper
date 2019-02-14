@@ -1,18 +1,22 @@
 # Plugin.XF.AppInstallHelper
 Xamarin Form helper for install application
 
-User guide 
+Nuget installation path
+```
+Install-Package Plugin.XF.AppInstallHelper
+```
+
 Android
 1. Insert below xml text into AndroidManifest.xml inside <application> tag
   
-``` C#
+``` xml
 <application 
   ....
   <provider android:name="android.support.v4.content.FileProvider" android:authorities="{packagename}.fileprovider" android:exported="false" android:grantUriPermissions="true">
     <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths" />
   </provider>
   ....
-  </application>
+</application>
 ```
 
 2. Create xml file named "file_paths.xml" in "Resources\xml" and Build action as "Android Resource"
@@ -24,3 +28,5 @@ Android
   <internal-path name="internal_files" path="."/>
 </paths>
 ```
+
+
