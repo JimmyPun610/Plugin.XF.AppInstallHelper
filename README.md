@@ -1,5 +1,6 @@
 # Plugin.XF.AppInstallHelper
 Xamarin Form helper for install application
+https://www.nuget.org/packages/Plugin.XF.AppInstallHelper/
 
 Nuget installation path
 ```
@@ -29,4 +30,12 @@ Android
 </paths>
 ```
 
+3. In MainActivity.cs, initialze the library with your file provider authorities
+```C#
+  Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.Init("{packagename}.fileprovider");
+```
 
+4. Call the installation API
+```C#
+Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp(path, Plugin.XF.AppInstallHelper.Abstractions.InstallMode.OutOfAppStore);
+```
