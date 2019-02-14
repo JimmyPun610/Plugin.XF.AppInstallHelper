@@ -1,5 +1,8 @@
 # Plugin.XF.AppInstallHelper
 Xamarin Form helper for install application
+
+Support Android 4.4+ / iOS 10+
+
 https://www.nuget.org/packages/Plugin.XF.AppInstallHelper/
 
 Nuget installation path
@@ -8,9 +11,6 @@ Install-Package Plugin.XF.AppInstallHelper
 ```
 
 Android
-
-Pre-requisite
-1. Make sure application has switch on permission READ_EXTERNAL_STORAGE, otherwise, it will not work
 
 Configuration
 1. Insert below xml text into AndroidManifest.xml inside <application> tag
@@ -46,10 +46,33 @@ Configuration
 
 3. In MainActivity.cs, initialze the library with your file provider authorities
 ```C#
-  Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.Init("{packagename}.fileprovider");
+
+	global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+	....
+	Plugin.CurrentActivity.CrossCurrentActivity.Current.Init(this, savedInstanceState);
+	Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+    Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.Init("{packagename}.fileprovider");
+	....
+	LoadApplication(new App());
+  
+  
+   public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+   {
+		PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+		Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+		base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+   }
 ```
 
 4. Call the installation API
 ```C#
-Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp(path, installMode);
+	Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp(path, installMode);
+```
+
+
+
+iOS
+iOS does not have any configuration. Api can be called directly.
+```C#
+	Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp(path, installMode);
 ```
