@@ -78,8 +78,8 @@ APK file must located in external storage, otherwise, parse error will occur.
 
 Pass the full file path to API. Install mode as _OutOfAppStore_
 ```C#
-            string apkPath = System.IO.Path.Combine(Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).AbsolutePath, "APK.APK");
-	Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp(apkPath, Plugin.XF.AppInstallHelper.Abstractions.InstallMode.OutOfAppStore);
+        string apkPath = System.IO.Path.Combine(Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).AbsolutePath, "APK.APK");
+	await Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp(apkPath, Plugin.XF.AppInstallHelper.Abstractions.InstallMode.OutOfAppStore);
 ```
 **Android(Play store)**
 Pass the package name to API. Install mode as _AppStore_
@@ -88,7 +88,7 @@ E.g. For the App chrome with play store url : https://play.google.com/store/apps
 
 Api parameter is _com.android.chrome_
 ```C#
-	Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp("com.android.chrome", Plugin.XF.AppInstallHelper.Abstractions.InstallMode.AppStore);
+	await Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp("com.android.chrome", Plugin.XF.AppInstallHelper.Abstractions.InstallMode.AppStore);
 ```
 
 **iOS(Enterprise distribution or plist)**
@@ -104,5 +104,5 @@ Pass the Id the Api. E.g. App store url is https://itunes.apple.com/us/app/apple
 
 The API call should be
 ```C#
-	Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp("375380948", Plugin.XF.AppInstallHelper.Abstractions.InstallMode.AppStore);
+   await Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp("375380948", Plugin.XF.AppInstallHelper.Abstractions.InstallMode.AppStore);
 ```
