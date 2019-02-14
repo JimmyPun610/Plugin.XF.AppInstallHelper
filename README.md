@@ -11,13 +11,22 @@ Android
 1. Insert below xml text into AndroidManifest.xml inside <application> tag
   
 ``` xml
-<application 
-  ....
-  <provider android:name="android.support.v4.content.FileProvider" android:authorities="{packagename}.fileprovider" android:exported="false" android:grantUriPermissions="true">
-    <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths" />
-  </provider>
-  ....
-</application>
+<manifest .....
+   <!--Use for Download the APK, Read and wrtie it-->
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <!--Use for package installation-->
+	<uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+	<uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+  <application 
+    ....
+    <provider android:name="android.support.v4.content.FileProvider" android:authorities="{packagename}.fileprovider" android:exported="false" android:grantUriPermissions="true">
+      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths" />
+    </provider>
+    ....
+  </application>
+</manifest>
 ```
 
 2. Create xml file named "file_paths.xml" in "Resources\xml" and Build action as "Android Resource"
