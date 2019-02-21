@@ -50,10 +50,11 @@ namespace Plugin.XF.AppInstallHelper
                 if (permissionGranted)
                 {
                     Java.IO.File file = new Java.IO.File(path);
-                    Android.Net.Uri apkUri = FileProvider.GetUriForFile(Android.App.Application.Context,
-                    this._fileProviderAuthorities, file);
+                  
                     if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.N)
                     {
+                        Android.Net.Uri apkUri = FileProvider.GetUriForFile(Android.App.Application.Context,
+                     this._fileProviderAuthorities, file);
                         Intent intent = new Intent(Intent.ActionInstallPackage);
                         intent.SetData(apkUri);
                         intent.SetFlags(ActivityFlags.GrantReadUriPermission);
@@ -63,8 +64,8 @@ namespace Plugin.XF.AppInstallHelper
                     else
                     {
                         Intent intent = new Intent(Intent.ActionView);
-                        intent.SetDataAndType(apkUri, "application/vnd.android.package-archive");
-                        intent.SetFlags(ActivityFlags.NewTask);
+                        intent.SetDataAndType(Android.Net.Uri.FromFile(file), "application/vnd.android.package-archive");
+                        intent.AddFlags(ActivityFlags.NewTask);
                         Android.App.Application.Context.StartActivity(intent);
                         return true;
                     }
