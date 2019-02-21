@@ -50,5 +50,10 @@ namespace Plugin.XF.AppInstallHelper
 
             return false;
         }
+
+        public override string GetPublicDownloadPath()
+        {
+            return string.Empty;
+        }
     }
 }

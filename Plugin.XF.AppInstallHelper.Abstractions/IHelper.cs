@@ -35,5 +35,11 @@ namespace Plugin.XF.AppInstallHelper.Abstractions
         /// <param name="path"></param>
         /// <param name="installMode"></param>
         Task<bool> InstallApp(string path, InstallMode installMode);
+
+        /// <summary>
+        /// Get the Public Download File path for OS
+        /// </summary>
+        /// <returns></returns>
+        string GetPublicDownloadPath();
     }
 }

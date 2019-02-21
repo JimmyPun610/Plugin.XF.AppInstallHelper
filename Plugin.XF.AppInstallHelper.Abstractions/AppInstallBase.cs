@@ -8,8 +8,12 @@ namespace Plugin.XF.AppInstallHelper.Abstractions
 {
     public class AppInstallBase : IHelper
     {
-        public string PublicDownloadPath = string.Empty;
         public string _fileProviderAuthorities = string.Empty;
+
+        public virtual string GetPublicDownloadPath()
+        {
+            return string.Empty;
+        }
 
         public virtual void Init(string fileProviderAuthorities)
         {
