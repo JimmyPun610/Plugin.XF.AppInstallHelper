@@ -78,7 +78,7 @@ APK file must located in external storage, otherwise, parse error will occur.
 
 Pass the full file path to API. Install mode as _OutOfAppStore_
 ```C#
-        string apkPath = System.IO.Path.Combine(Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).AbsolutePath, "APK.APK");
+        string apkPath = System.IO.Path.Combine(Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.GetPublicDownloadPath(), "APK.APK");
 	await Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp(apkPath, Plugin.XF.AppInstallHelper.Abstractions.InstallMode.OutOfAppStore);
 ```
 **Android(Play store)**
