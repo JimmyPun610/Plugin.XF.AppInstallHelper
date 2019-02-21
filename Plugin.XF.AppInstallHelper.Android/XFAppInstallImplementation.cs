@@ -21,6 +21,7 @@ namespace Plugin.XF.AppInstallHelper
         public override void Init(string fileProviderAuthorities)
         {
             base.Init(fileProviderAuthorities);
+            PublicDownloadPath = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).AbsolutePath;
         }
 
         /// <summary>
