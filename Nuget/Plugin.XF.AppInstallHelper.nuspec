@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Plugin.XF.AppInstallHelper</id>
-    <version>1.0.1.1</version>
+    <version>1.1.0.7</version>
     <authors>Jimmy Pun</authors>
     <owners>Jimmy Pun</owners>
     <licenseUrl>https://github.com/JimmyPun610/Plugin.XF.AppInstallHelper</licenseUrl>
@@ -10,25 +10,42 @@
     <iconUrl>https://banner2.kisspng.com/20180713/olo/kisspng-nuget-net-framework-package-manager-software-repo-nuget-5b487dc3ba81a7.452233091531477443764.jpg</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Xamarin Form helper for install application</description>
-    <releaseNotes>1.0.1.1 Bug fix on Android with version below Sdk version N and export the public download location for Android</releaseNotes>
+    <releaseNotes>1.1.0.7 : Add Version Class, Update Xamarin Essentials version and Android BuildVersion to 9</releaseNotes>
     <copyright>Copyright 2019</copyright>
     <tags>Xamarin Xamarin-Forms</tags>
 	<dependencies>
 		<group targetFramework="netstandard2.0">
 			<!--MonoAndroid dependencies go here-->
-			<dependency id="Xamarin.Essentials" version="1.0.1" />
+			<dependency id="Xamarin.Essentials" version="1.3.1" />
 			<dependency id="Plugin.Permissions" version="3.0.0.12" />
 		</group>
 		<group targetFramework="Xamarin.iOS10">
 			<!--MonoAndroid dependencies go here-->
-			<dependency id="Xamarin.Essentials" version="1.0.1" />
+			<dependency id="Xamarin.Essentials" version="1.3.1" />
 			<dependency id="Plugin.Permissions" version="3.0.0.12" />
 		</group>
 		<group targetFramework="MonoAndroid">
 			<!--MonoAndroid dependencies go here-->
 			<dependency id="Plugin.CurrentActivity" version="2.1.0.4" />
-			<dependency id="Xamarin.Essentials" version="1.0.1" />
+			<dependency id="Xamarin.Essentials" version="1.3.1" />
 			<dependency id="Plugin.Permissions" version="3.0.0.12" />
+			<dependency id="Xamarin.Android.Support.v7.MediaRouter" version="28.0.0.3" />
+			<dependency id="Xamarin.Android.Support.v7.AppCompat" version="28.0.0.3" />
+			<dependency id="Xamarin.Android.Support.v4" version="28.0.0.3" />	
+			<dependency id="Xamarin.Android.Support.Annotations" version="28.0.0.3" />	
+			<dependency id="Xamarin.Android.Support.Collections" version="28.0.0.3" />	
+			<dependency id="Xamarin.Android.Support.Compat" version="28.0.0.3" />	
+			<dependency id="Xamarin.Android.Support.Core.UI" version="28.0.0.3" />	
+			<dependency id="Xamarin.Android.Support.Core.Utils" version="28.0.0.3" />	
+			<dependency id="Xamarin.Android.Support.CursorAdapter" version="28.0.0.3" />	
+			<dependency id="Xamarin.Android.Support.Design" version="28.0.0.3" />	
+			<dependency id="Xamarin.Android.Support.Fragment" version="28.0.0.3" />	
+			<dependency id="Xamarin.Android.Support.Interpolator" version="28.0.0.3" />	
+			<dependency id="Xamarin.Android.Support.Media.Compat" version="28.0.0.3" />	
+			<dependency id="Xamarin.Android.Support.v7.RecyclerView" version="28.0.0.3" />	
+			<dependency id="Xamarin.Android.Support.VersionedParcelable" version="28.0.0.3" />	
+			<dependency id="Xamarin.Android.Support.v7.RecyclerView" version="28.0.0.3" />	
+			<dependency id="Xamarin.Android.Support.v7.RecyclerView" version="28.0.0.3" />	
 		</group>
 	</dependencies>
   </metadata>
@@ -38,6 +55,6 @@
 		<file src="..\Plugin.XF.AppInstallHelper\bin\Release\*.dll" target="lib\netstandard2.0" />
 		<file src="..\Plugin.XF.AppInstallHelper.Abstractions\bin\Release\*.dll" target="lib\netstandard2.0" />
 		<file src="..\Plugin.XF.AppInstallHelper.iOS\bin\Release\*.dll" target="lib\xamarin.ios10" />
-		<file src="..\Plugin.XF.AppInstallHelper.Android\bin\Release\*.dll" target="lib\monoandroid81" />
+		<file src="..\Plugin.XF.AppInstallHelper.Android\bin\Release\*.dll" target="lib\monoandroid90" />
 	</files>
 </package>

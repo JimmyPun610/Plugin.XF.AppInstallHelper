@@ -57,7 +57,8 @@ namespace Plugin.XF.AppInstallHelper
                      this._fileProviderAuthorities, file);
                         Intent intent = new Intent(Intent.ActionInstallPackage);
                         intent.SetData(apkUri);
-                        intent.SetFlags(ActivityFlags.GrantReadUriPermission);
+                        intent.AddFlags(ActivityFlags.GrantReadUriPermission);
+                        intent.AddFlags(ActivityFlags.NewTask);
                         Android.App.Application.Context.StartActivity(intent);
                         return true;
                     }
