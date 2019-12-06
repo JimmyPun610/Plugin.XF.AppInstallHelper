@@ -106,3 +106,13 @@ The API call should be
 ```C#
    await Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp("375380948", Plugin.XF.AppInstallHelper.Abstractions.InstallMode.AppStore);
 ```
+
+
+**Ask for storage permission**
+
+```C#
+	//iOS default return true
+	//Android 6 or above, depends on user decision
+	//Below Android 6, default true
+	bool allowed = await Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.AskForRequiredPermission();
+```
