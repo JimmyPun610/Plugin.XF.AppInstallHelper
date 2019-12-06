@@ -30,22 +30,22 @@ namespace Plugin.XF.AppInstallHelper.Sample.Droid
             Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.Init("plugin.xf.appinstallhelper.sample.fileprovider");
 
             LoadApplication(new App());
-            askForPermission();
+            //askForPermission();
 
 
 
         }
 
-        private async void askForPermission()
-        {
-            Plugin.Permissions.Abstractions.PermissionStatus status = await Plugin.Permissions.CrossPermissions.Current.CheckPermissionStatusAsync(Plugin.Permissions.Abstractions.Permission.Storage);
-            var permissionGranted = ContextCompat.CheckSelfPermission(Android.App.Application.Context, Manifest.Permission.WriteExternalStorage) == (int)Android.Content.PM.Permission.Granted;
-            while (!permissionGranted)
-            {
-                await Plugin.Permissions.CrossPermissions.Current.RequestPermissionsAsync(Plugin.Permissions.Abstractions.Permission.Storage);
-                permissionGranted = ContextCompat.CheckSelfPermission(Android.App.Application.Context, Manifest.Permission.WriteExternalStorage) == (int)Android.Content.PM.Permission.Granted;
-            }
-        }
+        //private async void askForPermission()
+        //{
+        //    Plugin.Permissions.Abstractions.PermissionStatus status = await Plugin.Permissions.CrossPermissions.Current.CheckPermissionStatusAsync(Plugin.Permissions.Abstractions.Permission.Storage);
+        //    var permissionGranted = ContextCompat.CheckSelfPermission(Android.App.Application.Context, Manifest.Permission.WriteExternalStorage) == (int)Android.Content.PM.Permission.Granted;
+        //    while (!permissionGranted)
+        //    {
+        //        await Plugin.Permissions.CrossPermissions.Current.RequestPermissionsAsync(Plugin.Permissions.Abstractions.Permission.Storage);
+        //        permissionGranted = ContextCompat.CheckSelfPermission(Android.App.Application.Context, Manifest.Permission.WriteExternalStorage) == (int)Android.Content.PM.Permission.Granted;
+        //    }
+        //}
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

@@ -10,6 +10,11 @@ namespace Plugin.XF.AppInstallHelper.Abstractions
     {
         public string _fileProviderAuthorities = string.Empty;
 
+        public virtual Task<bool> AskForRequiredPermission()
+        {
+            throw new NotImplementedException();
+        }
+
         public virtual string GetPublicDownloadPath()
         {
             return string.Empty;

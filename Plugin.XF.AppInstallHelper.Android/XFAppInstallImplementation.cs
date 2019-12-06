@@ -14,6 +14,26 @@ namespace Plugin.XF.AppInstallHelper
 {
     public class XFAppInstallImplementation : AppInstallBase
     {
+
+        public override async Task<bool> AskForRequiredPermission()
+        {
+            bool permissionGranted = true;
+            if (Build.VERSION.SdkInt >= BuildVersionCodes.M)
+            {
+                //Android 6.0 Upper
+                Plugin.Permissions.Abstractions.PermissionStatus status = await Plugin.Permissions.CrossPermissions.Current.CheckPermissionStatusAsync(Plugin.Permissions.Abstractions.Permission.Storage);
+                permissionGranted = ContextCompat.CheckSelfPermission(Android.App.Application.Context, Manifest.Permission.WriteExternalStorage) == (int)Android.Content.PM.Permission.Granted
+                                     && ContextCompat.CheckSelfPermission(Android.App.Application.Context, Manifest.Permission.ReadExternalStorage) == (int)Android.Content.PM.Permission.Granted;
+                if (!permissionGranted)
+                {
+                    await Plugin.Permissions.CrossPermissions.Current.RequestPermissionsAsync(Plugin.Permissions.Abstractions.Permission.Storage);
+                    permissionGranted = ContextCompat.CheckSelfPermission(Android.App.Application.Context, Manifest.Permission.WriteExternalStorage) == (int)Android.Content.PM.Permission.Granted
+                                        && ContextCompat.CheckSelfPermission(Android.App.Application.Context, Manifest.Permission.ReadExternalStorage) == (int)Android.Content.PM.Permission.Granted;
+                }
+            }
+            return permissionGranted;
+        }
+
         /// <summary>
         /// Initialize the library with the file provider
         /// </summary>
@@ -36,17 +56,11 @@ namespace Plugin.XF.AppInstallHelper
             if(installMode == InstallMode.OutOfAppStore)
             {
                 bool permissionGranted = true;
-                if (Build.VERSION.SdkInt >= BuildVersionCodes.M)
+                do
                 {
-                    //Android 6.0 Upper
-                    Plugin.Permissions.Abstractions.PermissionStatus status = await Plugin.Permissions.CrossPermissions.Current.CheckPermissionStatusAsync(Plugin.Permissions.Abstractions.Permission.Storage);
-                    permissionGranted = ContextCompat.CheckSelfPermission(Android.App.Application.Context, Manifest.Permission.ReadExternalStorage) == (int)Android.Content.PM.Permission.Granted;
-                    while (!permissionGranted)
-                    {
-                        await Plugin.Permissions.CrossPermissions.Current.RequestPermissionsAsync(Plugin.Permissions.Abstractions.Permission.Storage);
-                        permissionGranted = ContextCompat.CheckSelfPermission(Android.App.Application.Context, Manifest.Permission.ReadExternalStorage) == (int)Android.Content.PM.Permission.Granted;
-                    }
-                }
+                    permissionGranted = await AskForRequiredPermission();
+                } while (!permissionGranted);
+
                 if (permissionGranted)
                 {
                     Java.IO.File file = new Java.IO.File(path);

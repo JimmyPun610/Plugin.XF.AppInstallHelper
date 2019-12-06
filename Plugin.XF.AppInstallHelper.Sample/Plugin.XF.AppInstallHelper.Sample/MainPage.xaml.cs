@@ -17,8 +17,24 @@ namespace Plugin.XF.AppInstallHelper.Sample
         public MainPage()
         {
             InitializeComponent();
+            
             CurrentVersionCodeLabel.Text = $"Current Version Code : {Xamarin.Essentials.VersionTracking.CurrentBuild}";
             CurrentVersionNameLabel.Text = $"Current Version Name : {Xamarin.Essentials.VersionTracking.CurrentVersion}";
+            AskForPermission();
+        }
+
+
+        private async void AskForPermission()
+        {
+            bool allowed = await Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.AskForRequiredPermission();
+            if (!allowed)
+            {
+                await DisplayAlert("Alert", "You should allow the permission for download apk", "Ok");
+            }
+            else
+            {
+                await DisplayAlert("Congra!", "You have permission to do the next step", "OK");
+            }
         }
 
         private async void ForceUpdateBtn_Clicked(object sender, EventArgs e)
@@ -102,6 +118,11 @@ namespace Plugin.XF.AppInstallHelper.Sample
                 iOSPath = ""
             };
             return version2;
+        }
+
+        private void AskForPermissionBtn_Clicked(object sender, EventArgs e)
+        {
+            AskForPermission();
         }
     }
 }

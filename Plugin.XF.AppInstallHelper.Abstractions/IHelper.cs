@@ -41,5 +41,10 @@ namespace Plugin.XF.AppInstallHelper.Abstractions
         /// </summary>
         /// <returns></returns>
         string GetPublicDownloadPath();
+
+        /// <summary>
+        /// Ask for permission on storage read/write
+        /// </summary>
+        Task<bool> AskForRequiredPermission();
     }
 }

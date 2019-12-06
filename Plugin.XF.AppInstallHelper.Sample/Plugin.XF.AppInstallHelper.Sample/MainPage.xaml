@@ -14,6 +14,7 @@
         <Label x:Name="CurrentVersionNameLabel"
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
+        <Button x:Name="AskForPermissionBtn" Text="Ask for permission (Android needed)" Clicked="AskForPermissionBtn_Clicked"/>
         <Button x:Name="ForceUpdateBtn" Text="Check new version (ForceUpdate)" Clicked="ForceUpdateBtn_Clicked"/>
         <Button x:Name="NonForceUpdateBtn" Text="Check new version (Can skip)" Clicked="NonForceUpdateBtn_Clicked"/>
     </StackLayout>

@@ -11,6 +11,13 @@ namespace Plugin.XF.AppInstallHelper
 {
     public class XFAppInstallImplementation : AppInstallBase
     {
+        [Obsolete("iOS no need to ask for permission")]
+
+        public override async Task<bool> AskForRequiredPermission()
+        {
+            return true;
+        }
+
         [Obsolete("iOS do not need to initialize")]
         public override void Init(string fileProviderAuthorities)
         {
