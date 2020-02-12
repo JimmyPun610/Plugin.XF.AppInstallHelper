@@ -13,7 +13,7 @@ Install-Package Plugin.XF.AppInstallHelper
 ### Android
 
 **Configuration**
-1. Insert below xml text into AndroidManifest.xml inside <application> tag
+1. Insert below xml text into AndroidManifest.xml inside <application> tag, replace {packagename} to your app id
   
 ``` xml
 <manifest .....
@@ -44,7 +44,7 @@ Install-Package Plugin.XF.AppInstallHelper
 </paths>
 ```
 
-3. In MainActivity.cs, initialze the library with your file provider authorities
+3. In MainActivity.cs, initialze the library with your file provider authorities, replace {packagename} to your app id
 ```C#
 
 	global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
