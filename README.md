@@ -13,8 +13,8 @@ Install-Package Plugin.XF.AppInstallHelper
 
 ### Build test ###
 ##### Android [![Build status](https://build.appcenter.ms/v0.1/apps/1a88339d-1386-4a35-8a8e-f4d85cc6f28b/branches/master/badge)](https://appcenter.ms)
-iOS Build test is unavailable 
-<!--##### iOS [![Build status](https://build.appcenter.ms/v0.1/apps/e96b2328-3a65-4c36-915d-4444faa2fa86/branches/master/badge)](https://appcenter.ms)-->
+
+##### iOS [![Build status](https://build.appcenter.ms/v0.1/apps/e96b2328-3a65-4c36-915d-4444faa2fa86/branches/master/badge)](https://appcenter.ms)
 
 ### Android
 
