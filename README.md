@@ -7,7 +7,7 @@ https://www.nuget.org/packages/Plugin.XF.AppInstallHelper/
 
 Nuget installation path
 ```
-Install-Package Plugin.XF.AppInstallHelper
+Install-Package Plugin.XF.AppInstallHelper -Version 1.1.0.14
 ```
 
 ### Build test ###
