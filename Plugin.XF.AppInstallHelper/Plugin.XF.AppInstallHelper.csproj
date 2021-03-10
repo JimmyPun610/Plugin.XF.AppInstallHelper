@@ -1,68 +1,102 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DAF5BE0B-924C-4808-8209-01A7762BBD00}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>Plugin.XF.AppInstallHelper</RootNamespace>
-    <AssemblyName>Plugin.XF.AppInstallHelper</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TargetFrameworkProfile>Profile44</TargetFrameworkProfile>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;PORTABLE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;PORTABLE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
-    <ProjectReference Include="..\Plugin.XF.AppInstallHelper.Abstractions\Plugin.XF.AppInstallHelper.Abstractions.csproj">
-      <Project>{598cf1cc-6daf-465a-adc0-ec2da7b08f06}</Project>
-      <Name>Plugin.XF.AppInstallHelper.Abstractions</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="CrossInstallHelper.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Plugin.Permissions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\NWCON.PcPay.Approval\packages\Plugin.Permissions.3.0.0.12\lib\netstandard1.0\Plugin.Permissions.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\portable-net45+win8+wp8+wpa81\System.Numerics.Vectors.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\netstandard1.1\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
-    </Reference>
-    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\portable-net40+sl4+win8+wp8\System.ValueTuple.dll</HintPath>
-    </Reference>
-    <Reference Include="Xamarin.Essentials, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Essentials.1.3.1\lib\netstandard1.0\Xamarin.Essentials.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+﻿<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
+
+	<PropertyGroup>
+
+		<!--Update with your target such as: Xamarin.iOS10 or MonoAndroid80 or Xamarin.Mac20-->
+		<TargetFrameworks>Xamarin.iOS10;MonoAndroid10.0;MonoAndroid11.0;netstandard2.0</TargetFrameworks>
+
+		<!--Assembly and Namespace info -->
+		<id>Plugin.XF.AppInstallHelper</id>
+		<AssemblyName>Plugin.XF.AppInstallHelper</AssemblyName>
+		<RootNamespace>Plugin.XF.AppInstallHelper</RootNamespace>
+
+		<Product></Product>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+		<AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
+		<Version>2.0.0</Version>
+		<NeutralLanguage>en</NeutralLanguage>
+
+
+		<!--Don't auto add files for me, I will tell you -->
+		<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+
+		<!-- Helper to add defines-->
+		<DefineConstants>$(DefineConstants);</DefineConstants>
+
+		<!--Assembly and Namespace info -->
+
+		<!--Version of C# to use -->
+		<LangVersion>default</LangVersion>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>Jimmy Pun</Authors>
+		<Description>Xamarin Form helper for install application</Description>
+		<PackageIconUrl>https://banner2.kisspng.com/20180713/olo/kisspng-nuget-net-framework-package-manager-software-repo-nuget-5b487dc3ba81a7.452233091531477443764.jpg</PackageIconUrl>
+		<RepositoryUrl>https://github.com/JimmyPun610/BarcodeScanner.XF</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/JimmyPun610/Plugin.XF.AppInstallHelper</PackageProjectUrl>
+		<PackageLicenseUrl>https://github.com/JimmyPun610/Plugin.XF.AppInstallHelper</PackageLicenseUrl>
+		<RepositoryType></RepositoryType>
+		<PackageTags>Xamarin Xamarin-Forms Versioning Version Update</PackageTags>
+		<PackageReleaseNotes>1. Update project structure 2. Update project reference package 3. Update Android target framework to support latest Xamarin Forms</PackageReleaseNotes>
+		<Copyright>Copyright 2021</Copyright>
+
+	</PropertyGroup>
+
+	<!-- Define what happens on build and release -->
+	<PropertyGroup Condition=" '$(Configuration)'=='Debug' ">
+		<DebugType>full</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+		<GenerateDocumentationFile>false</GenerateDocumentationFile>
+	</PropertyGroup>
+
+	<PropertyGroup Condition=" '$(Configuration)'=='Release' ">
+		<DebugType>pdbonly</DebugType>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+		 <!--If we want a nuget package add this-->
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+     
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- This None is here so the conditionally included files show up in the Solution Explorer -->
+		<None Include="**\*.cs;**\*.xml;**\*.axml;**\*.png" Exclude="obj\**\*.*;bin\**\*.*;bin;obj" />
+
+		<!-- We will compile anything ending in .shared.cs  You can change this -->
+		<Compile Include="Shared\*.cs" />
+        <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+	
+	</ItemGroup>
+	<ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard')) ">
+		<Compile Include="NetStandard\*.cs" />
+	
+
+	</ItemGroup>
+
+	<ItemGroup Condition=" $(TargetFramework.StartsWith('MonoAndroid')) ">
+		<Compile Include="Android\*.cs" />
+		<PackageReference Include="Xamarin.Android.Support.v7.MediaRouter" Version="28.0.0.3"></PackageReference>
+		<PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="28.0.0.3"></PackageReference>
+		<PackageReference Include="Xamarin.Android.Support.v4" Version="28.0.0.3"></PackageReference>
+		<PackageReference Include="Xamarin.Android.Support.Annotations" Version="28.0.0.3"></PackageReference>
+		<PackageReference Include="Xamarin.Android.Support.Collections" Version="28.0.0.3"></PackageReference>
+		<PackageReference Include="Xamarin.Android.Support.Compat" Version="28.0.0.3"></PackageReference>
+		<PackageReference Include="Xamarin.Android.Support.Core.UI" Version="28.0.0.3"></PackageReference>
+		<PackageReference Include="Xamarin.Android.Support.Core.Utils" Version="28.0.0.3"></PackageReference>
+		<PackageReference Include="Xamarin.Android.Support.CursorAdapter" Version="28.0.0.3"></PackageReference>
+		<PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.3"></PackageReference>
+		<PackageReference Include="Xamarin.Android.Support.Fragment" Version="28.0.0.3"></PackageReference>
+		<PackageReference Include="Xamarin.Android.Support.Interpolator" Version="28.0.0.3"></PackageReference>
+		<PackageReference Include="Xamarin.Android.Support.Media.Compat" Version="28.0.0.3"></PackageReference>
+		<PackageReference Include="Xamarin.Android.Support.v7.RecyclerView" Version="28.0.0.3"></PackageReference>
+		<PackageReference Include="Xamarin.AndroidX.MediaRouter" Version="1.2.0"></PackageReference>
+		<PackageReference Include="Xamarin.AndroidX.Palette" Version="1.0.0.5"></PackageReference>
+	</ItemGroup>
+
+	<ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
+		<Compile Include="iOS\*.cs" />
+	
+	</ItemGroup>
+
+
+
 </Project>

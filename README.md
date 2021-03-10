@@ -1,7 +1,8 @@
 # Plugin.XF.AppInstallHelper
 Xamarin Form helper for install application
 
-Support Android 4.4+ / iOS 10+
+Support Android 4.4+ / iOS 10+ with Xamarin Form 5.0
+For Android, please make sure the target framework is Android 10 / 11
 
 https://www.nuget.org/packages/Plugin.XF.AppInstallHelper/
 
@@ -12,7 +13,8 @@ Install-Package Plugin.XF.AppInstallHelper
 
 ### Build test ###
 ##### Android [![Build status](https://build.appcenter.ms/v0.1/apps/1a88339d-1386-4a35-8a8e-f4d85cc6f28b/branches/master/badge)](https://appcenter.ms)
-##### iOS [![Build status](https://build.appcenter.ms/v0.1/apps/e96b2328-3a65-4c36-915d-4444faa2fa86/branches/master/badge)](https://appcenter.ms)
+iOS Build test is unavailable 
+<!--##### iOS [![Build status](https://build.appcenter.ms/v0.1/apps/e96b2328-3a65-4c36-915d-4444faa2fa86/branches/master/badge)](https://appcenter.ms)-->
 
 ### Android
 
@@ -53,16 +55,14 @@ Install-Package Plugin.XF.AppInstallHelper
 
 	global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 	....
-	Plugin.CurrentActivity.CrossCurrentActivity.Current.Init(this, savedInstanceState);
 	Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-    Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.Init("{packagename}.fileprovider");
+	Plugin.XF.AppInstallHelper.InstallationHelper.Init("{packagename}.fileprovider");
 	....
 	LoadApplication(new App());
   
   
    public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
    {
-		PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 		Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 		base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
    }
@@ -82,8 +82,8 @@ APK file must located in external storage, otherwise, parse error will occur.
 
 Pass the full file path to API. Install mode as _OutOfAppStore_
 ```C#
-        string apkPath = System.IO.Path.Combine(Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.GetPublicDownloadPath(), "APK.APK");
-	await Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp(apkPath, Plugin.XF.AppInstallHelper.Abstractions.InstallMode.OutOfAppStore);
+        string apkPath = System.IO.Path.Combine(Plugin.XF.AppInstallHelper.InstallationHelper.GetPublicDownloadPath(), "APK.APK");
+	await Plugin.XF.AppInstallHelper.InstallationHelper.InstallApp(apkPath, Plugin.XF.AppInstallHelper.Abstractions.InstallMode.OutOfAppStore);
 ```
 **Android(Play store)**
 Pass the package name to API. Install mode as _AppStore_
@@ -92,14 +92,14 @@ E.g. For the App chrome with play store url : https://play.google.com/store/apps
 
 Api parameter is _com.android.chrome_
 ```C#
-	await Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp("com.android.chrome", Plugin.XF.AppInstallHelper.Abstractions.InstallMode.AppStore);
+	await Plugin.XF.AppInstallHelper.InstallationHelper.InstallApp("com.android.chrome", Plugin.XF.AppInstallHelper.Abstractions.InstallMode.AppStore);
 ```
 
 **iOS(Enterprise distribution or plist)**
 
 Pass the full itms-service url into API. make sure the plist is under **https**. Simulator is unavailable.
 ```C#
-   await Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp("itms-services:///?action=download-manifest&url=https://{iOS_app}.plist", Plugin.XF.AppInstallHelper.Abstractions.InstallMode.OutOfAppStore);
+   await Plugin.XF.AppInstallHelper.InstallationHelper.InstallApp("itms-services:///?action=download-manifest&url=https://{iOS_app}.plist", Plugin.XF.AppInstallHelper.Abstractions.InstallMode.OutOfAppStore);
 ```
 
 **iOS(App store)**
@@ -108,7 +108,7 @@ Pass the Id the Api. E.g. App store url is https://itunes.apple.com/us/app/apple
 
 The API call should be
 ```C#
-   await Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.InstallApp("375380948", Plugin.XF.AppInstallHelper.Abstractions.InstallMode.AppStore);
+   await Plugin.XF.AppInstallHelper.InstallationHelper.InstallApp("375380948", Plugin.XF.AppInstallHelper.Abstractions.InstallMode.AppStore);
 ```
 
 
@@ -118,5 +118,5 @@ The API call should be
 	//iOS default return true
 	//Android 6 or above, depends on user decision
 	//Below Android 6, default true
-	bool allowed = await Plugin.XF.AppInstallHelper.CrossInstallHelper.Current.AskForRequiredPermission();
+	bool allowed = await Plugin.XF.AppInstallHelper.InstallationHelper.AskForRequiredPermission();
 ```
