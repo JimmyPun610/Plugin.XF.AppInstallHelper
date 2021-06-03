@@ -83,7 +83,7 @@ APK file must located in external storage, otherwise, parse error will occur.
 Pass the full file path to API. Install mode as _OutOfAppStore_
 ```C#
         string apkPath = System.IO.Path.Combine(Plugin.XF.AppInstallHelper.InstallationHelper.GetPublicDownloadPath(), "APK.APK");
-	await Plugin.XF.AppInstallHelper.InstallationHelper.InstallApp(apkPath, Plugin.XF.AppInstallHelper.Abstractions.InstallMode.OutOfAppStore);
+	await Plugin.XF.AppInstallHelper.InstallationHelper.InstallApp(apkPath, Plugin.XF.AppInstallHelper.InstallMode.OutOfAppStore);
 ```
 **Android(Play store)**
 Pass the package name to API. Install mode as _AppStore_
@@ -92,14 +92,14 @@ E.g. For the App chrome with play store url : https://play.google.com/store/apps
 
 Api parameter is _com.android.chrome_
 ```C#
-	await Plugin.XF.AppInstallHelper.InstallationHelper.InstallApp("com.android.chrome", Plugin.XF.AppInstallHelper.Abstractions.InstallMode.AppStore);
+	await Plugin.XF.AppInstallHelper.InstallationHelper.InstallApp("com.android.chrome", Plugin.XF.AppInstallHelper.InstallMode.AppStore);
 ```
 
 **iOS(Enterprise distribution or plist)**
 
 Pass the full itms-service url into API. make sure the plist is under **https**. Simulator is unavailable.
 ```C#
-   await Plugin.XF.AppInstallHelper.InstallationHelper.InstallApp("itms-services:///?action=download-manifest&url=https://{iOS_app}.plist", Plugin.XF.AppInstallHelper.Abstractions.InstallMode.OutOfAppStore);
+   await Plugin.XF.AppInstallHelper.InstallationHelper.InstallApp("itms-services:///?action=download-manifest&url=https://{iOS_app}.plist", Plugin.XF.AppInstallHelper.InstallMode.OutOfAppStore);
 ```
 
 **iOS(App store)**
@@ -108,7 +108,7 @@ Pass the Id the Api. E.g. App store url is https://itunes.apple.com/us/app/apple
 
 The API call should be
 ```C#
-   await Plugin.XF.AppInstallHelper.InstallationHelper.InstallApp("375380948", Plugin.XF.AppInstallHelper.Abstractions.InstallMode.AppStore);
+   await Plugin.XF.AppInstallHelper.InstallationHelper.InstallApp("375380948", Plugin.XF.AppInstallHelper.InstallMode.AppStore);
 ```
 
 
