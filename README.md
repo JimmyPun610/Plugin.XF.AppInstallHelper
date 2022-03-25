@@ -2,7 +2,7 @@
 Xamarin Form helper for install application
 
 Support Android 4.4+ / iOS 10+ with Xamarin Form 5.0
-For Android, please make sure the target framework is Android 10 / 11
+For Android, please make sure the target framework is Android 10 / 11 / 12
 
 https://www.nuget.org/packages/Plugin.XF.AppInstallHelper/
 
