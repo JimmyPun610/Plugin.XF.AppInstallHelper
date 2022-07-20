@@ -81,7 +81,7 @@ public class MainActivity : MauiAppCompatActivity
 {
 	public MainActivity()
 	{
-	    Plugin.Maui.AppInstallHelper.InstallationHelper.Init({packagename}.fileprovider");
+	    Plugin.Maui.AppInstallHelper.InstallationHelper.Init("{packagename}.fileprovider");
 	}
 	public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
 	{
