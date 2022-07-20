@@ -11,9 +11,9 @@
 
 
 		<!--Assembly and Namespace info -->
-		<id>Plugin.XF.AppInstallHelper</id>
-		<AssemblyName>Plugin.XF.AppInstallHelper</AssemblyName>
-		<RootNamespace>Plugin.XF.AppInstallHelper</RootNamespace>
+		<id>Plugin.Maui.AppInstallHelper</id>
+		<AssemblyName>Plugin.Maui.AppInstallHelper</AssemblyName>
+		<RootNamespace>Plugin.Maui.AppInstallHelper</RootNamespace>
 
 		<Product></Product>
 		<AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -33,7 +33,7 @@
 		<LangVersion>default</LangVersion>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Authors>Jimmy Pun</Authors>
-		<Description>Xamarin Form helper for install application</Description>
+		<Description>Maui helper for install application</Description>
 		<PackageIconUrl>https://banner2.kisspng.com/20180713/olo/kisspng-nuget-net-framework-package-manager-software-repo-nuget-5b487dc3ba81a7.452233091531477443764.jpg</PackageIconUrl>
 		<RepositoryUrl>https://github.com/JimmyPun610/Plugin.XF.AppInstallHelper</RepositoryUrl>
 		<PackageProjectUrl>https://github.com/JimmyPun610/Plugin.XF.AppInstallHelper</PackageProjectUrl>
