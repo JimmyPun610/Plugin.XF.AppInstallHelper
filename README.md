@@ -13,7 +13,7 @@ Install-Package Plugin.XF.AppInstallHelper
 ```
 [Maui](https://www.nuget.org/packages/Plugin.Maui.AppInstallHelper/)
 ```
-Install-Package Plugin.Maui.AppInstallHelper
+Install-Package Plugin.Maui.AppInstallHelper -Version 2.2.0-pre
 ```
 ### Android
 
