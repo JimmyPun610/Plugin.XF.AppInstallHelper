@@ -1,21 +1,20 @@
 # Plugin.XF.AppInstallHelper
-Xamarin Form helper for install application
+Xamarin Form / Maui helper for install application
 
-Support Android 4.4+ / iOS 10+ with Xamarin Form 5.0
-For Android, please make sure the target framework is Android 10 / 11 / 12
+Support Android 4.4+ / iOS 10+ with Xamarin Form 5.0, Android 10+ / iOS13+ with Maui
 
-https://www.nuget.org/packages/Plugin.XF.AppInstallHelper/
+For Android, please make sure the target framework is Android 12
 
 Nuget installation path
+
+[Xamarin Forms](https://www.nuget.org/packages/Plugin.XF.AppInstallHelper/)
 ```
 Install-Package Plugin.XF.AppInstallHelper
 ```
-
-### Build test ###
-##### Android [![Build status](https://build.appcenter.ms/v0.1/apps/1a88339d-1386-4a35-8a8e-f4d85cc6f28b/branches/master/badge)](https://appcenter.ms)
-
-##### iOS [![Build status](https://build.appcenter.ms/v0.1/apps/e96b2328-3a65-4c36-915d-4444faa2fa86/branches/master/badge)](https://appcenter.ms)
-
+[Maui](https://www.nuget.org/packages/Plugin.Maui.AppInstallHelper/)
+```
+Install-Package Plugin.Maui.AppInstallHelper
+```
 ### Android
 
 **Configuration**
@@ -32,7 +31,7 @@ Install-Package Plugin.XF.AppInstallHelper
 	<uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
   <application 
     ....
-    <provider android:name="android.support.v4.content.FileProvider" android:authorities="{packagename}.fileprovider" android:exported="false" android:grantUriPermissions="true">
+    <provider android:name="androidx.core.content.FileProvider" android:authorities="{packagename}.fileprovider" android:exported="false" android:grantUriPermissions="true">
       <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths" />
     </provider>
     ....
@@ -52,20 +51,55 @@ Install-Package Plugin.XF.AppInstallHelper
 
 3. In MainActivity.cs, initialze the library with your file provider authorities, replace {packagename} to your app id
 ```C#
+// Xamarin Forms
+protected override void OnCreate(Bundle savedInstanceState)
 
-	global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-	....
-	Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-	Plugin.XF.AppInstallHelper.InstallationHelper.Init("{packagename}.fileprovider");
-	....
-	LoadApplication(new App());
+    base.OnCreate(savedInstanceState);
+    .....
+    Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+    global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+    Plugin.XF.AppInstallHelper.InstallationHelper.Init("{packagename}.fileprovider");
+    ....
+    LoadApplication(new App());
+}
   
-  
-   public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
-   {
-		Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-		base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-   }
+public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+{
+	Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+	base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+}
+   
+protected override void OnNewIntent(Intent intent)
+{
+	Plugin.Maui.AppInstallHelper.InstallationHelper.OnNewIntent(intent);
+	base.OnNewIntent(intent);
+}
+```
+```C#
+//Maui
+public class MainActivity : MauiAppCompatActivity
+{
+	public MainActivity()
+	{
+	    Plugin.Maui.AppInstallHelper.InstallationHelper.Init({packagename}.fileprovider");
+	}
+	public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+	{
+	    Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+	    base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+	}
+	protected override void OnNewIntent(Intent intent)
+	{
+	    Plugin.Maui.AppInstallHelper.InstallationHelper.OnNewIntent(intent);
+	    base.OnNewIntent(intent);
+	}
+}
+
+```
+
+4. Add LaunchMode.SingleTop to your MainActivity.cs
+```
+Activity(Label= "{app name}",LaunchMode = LaunchMode.SingleTop.....................)
 ```
 
 ### iOS
