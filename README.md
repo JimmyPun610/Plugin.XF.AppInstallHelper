@@ -71,7 +71,7 @@ public override void OnRequestPermissionsResult(int requestCode, string[] permis
    
 protected override void OnNewIntent(Intent intent)
 {
-	Plugin.Maui.AppInstallHelper.InstallationHelper.OnNewIntent(intent);
+	Plugin.XF.AppInstallHelper.InstallationHelper.OnNewIntent(intent);
 	base.OnNewIntent(intent);
 }
 ```
