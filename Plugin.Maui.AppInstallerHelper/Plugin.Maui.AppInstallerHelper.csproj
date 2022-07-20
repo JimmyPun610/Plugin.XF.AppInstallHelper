@@ -1,0 +1,73 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net6.0-android;net6.0-ios;</TargetFrameworks>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">13.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">23.0</SupportedOSPlatformVersion>
+
+
+		<!--Assembly and Namespace info -->
+		<id>Plugin.XF.AppInstallHelper</id>
+		<AssemblyName>Plugin.XF.AppInstallHelper</AssemblyName>
+		<RootNamespace>Plugin.XF.AppInstallHelper</RootNamespace>
+
+		<Product></Product>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+		<AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
+		<Version>2.2.0-pre</Version>
+		<NeutralLanguage>en</NeutralLanguage>
+
+
+		<!--Version of C# to use -->
+		<!--Don't auto add files for me, I will tell you -->
+		<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+
+		<!-- Helper to add defines-->
+		<DefineConstants>$(DefineConstants);</DefineConstants>
+
+		<!--Version of C# to use -->
+		<LangVersion>default</LangVersion>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>Jimmy Pun</Authors>
+		<Description>Xamarin Form helper for install application</Description>
+		<PackageIconUrl>https://banner2.kisspng.com/20180713/olo/kisspng-nuget-net-framework-package-manager-software-repo-nuget-5b487dc3ba81a7.452233091531477443764.jpg</PackageIconUrl>
+		<RepositoryUrl>https://github.com/JimmyPun610/Plugin.XF.AppInstallHelper</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/JimmyPun610/Plugin.XF.AppInstallHelper</PackageProjectUrl>
+		<PackageLicenseUrl>https://github.com/JimmyPun610/Plugin.XF.AppInstallHelper</PackageLicenseUrl>
+		<RepositoryType></RepositoryType>
+		<PackageTags>Xamarin Xamarin-Forms Versioning Version Update</PackageTags>
+		<PackageReleaseNotes>1. MAUI support.</PackageReleaseNotes>
+		<Copyright>Copyright 2022</Copyright>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- This None is here so the conditionally included files show up in the Solution Explorer -->
+		<None Include="**\*.cs;**\*.xml;**\*.axml;**\*.png" Exclude="obj\**\*.*;bin\**\*.*;bin;obj" />
+
+		<!-- We will compile anything ending in .shared.cs  You can change this -->
+		<Compile Include="Shared\*.cs" />
+		<Compile Include="Platforms\*\*.cs" />
+
+	</ItemGroup>
+
+
+	
+
+	<!--<PropertyGroup Condition="'$(TargetFramework)' == 'net6.0-ios'">
+		<RuntimeIdentifiers>ios-arm64;</RuntimeIdentifiers>
+		<PlatformTarget>arm64</PlatformTarget>
+    </PropertyGroup>-->
+
+
+	<!-- Bypass vaildation in Xamarin.Build.Download -->
+	<!--<Target Name="SetXamarinBuildDownloadBypassValidation" DependsOnTargets="BeforeBuild">
+		<PropertyGroup>
+			<XamarinBuildDownloadBypassValidation>true</XamarinBuildDownloadBypassValidation>
+		</PropertyGroup>
+	</Target>-->
+
+</Project>

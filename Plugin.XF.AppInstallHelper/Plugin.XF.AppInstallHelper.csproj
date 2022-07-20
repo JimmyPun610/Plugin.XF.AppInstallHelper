@@ -3,7 +3,7 @@
 	<PropertyGroup>
 
 		<!--Update with your target such as: Xamarin.iOS10 or MonoAndroid80 or Xamarin.Mac20-->
-		<TargetFrameworks>Xamarin.iOS10;MonoAndroid10.0;MonoAndroid11.0;MonoAndroid12.0;netstandard2.0</TargetFrameworks>
+		<TargetFrameworks>Xamarin.iOS10;MonoAndroid12.0;netstandard2.0</TargetFrameworks>
 
 		<!--Assembly and Namespace info -->
 		<id>Plugin.XF.AppInstallHelper</id>
@@ -13,7 +13,7 @@
 		<Product></Product>
 		<AssemblyVersion>1.0.0.0</AssemblyVersion>
 		<AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
-		<Version>2.1.0</Version>
+		<Version>2.2.0</Version>
 		<NeutralLanguage>en</NeutralLanguage>
 
 
@@ -36,7 +36,7 @@
 		<PackageLicenseUrl>https://github.com/JimmyPun610/Plugin.XF.AppInstallHelper</PackageLicenseUrl>
 		<RepositoryType></RepositoryType>
 		<PackageTags>Xamarin Xamarin-Forms Versioning Version Update</PackageTags>
-		<PackageReleaseNotes>1. Add support on android 12 framework and update Xamarin Forms and Essential version</PackageReleaseNotes>
+		<PackageReleaseNotes>1. Add support for Android Q, limited to TargetFramework MonoAndroid 12 only now.</PackageReleaseNotes>
 		<Copyright>Copyright 2022</Copyright>
 
 	</PropertyGroup>
@@ -52,9 +52,9 @@
 		<DebugType>pdbonly</DebugType>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 
-		 <!--If we want a nuget package add this-->
+		<!--If we want a nuget package add this-->
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-     
+
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -63,12 +63,12 @@
 
 		<!-- We will compile anything ending in .shared.cs  You can change this -->
 		<Compile Include="Shared\*.cs" />
-        <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
-	
+		<PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
+
 	</ItemGroup>
 	<ItemGroup Condition=" $(TargetFramework.StartsWith('netstandard')) ">
 		<Compile Include="NetStandard\*.cs" />
-	
+
 
 	</ItemGroup>
 
@@ -94,9 +94,6 @@
 
 	<ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
 		<Compile Include="iOS\*.cs" />
-	
+
 	</ItemGroup>
-
-
-
 </Project>

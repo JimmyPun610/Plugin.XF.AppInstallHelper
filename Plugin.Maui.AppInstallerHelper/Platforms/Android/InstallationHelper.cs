@@ -11,11 +11,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Essentials;
-using static Xamarin.Essentials.Platform;
-using Intent = Android.Content.Intent;
 
-namespace Plugin.XF.AppInstallHelper
+namespace Plugin.Maui.AppInstallHelper
 {
     public class InstallationHelper
     {
@@ -26,7 +23,7 @@ namespace Plugin.XF.AppInstallHelper
                 var canRequestInstallPackage = true;
                 if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
                     canRequestInstallPackage = Platform.CurrentActivity.PackageManager.CanRequestPackageInstalls();
-                  
+
                 if (!canRequestInstallPackage)
                 {
                     Platform.CurrentActivity.StartActivity(new Intent(

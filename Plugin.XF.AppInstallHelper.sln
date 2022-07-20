@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29418.71
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32611.2
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plugin.XF.AppInstallHelper", "Plugin.XF.AppInstallHelper\Plugin.XF.AppInstallHelper.csproj", "{D27111A7-9A40-4EFB-A46D-B532DB25D546}"
 EndProject
@@ -9,7 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Android", "Sample\Sa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.iOS", "Sample\Sample.iOS\Sample.iOS.csproj", "{8E8B0E5C-2CB8-4961-A97B-DEFD8AA5E344}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample", "Sample\Sample\Sample.csproj", "{8F89B7BB-D572-4E82-87DE-7EA34CFEDE1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample", "Sample\Sample\Sample.csproj", "{8F89B7BB-D572-4E82-87DE-7EA34CFEDE1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.Maui.AppInstallerHelper", "Plugin.Maui.AppInstallerHelper\Plugin.Maui.AppInstallerHelper.csproj", "{966E525E-F095-41E6-8244-95EE4A952E97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Maui", "Sample.Maui\Sample.Maui.csproj", "{F1E79F2F-BDB1-4E29-B523-0D890CFF2FEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +77,36 @@ Global
 		{8F89B7BB-D572-4E82-87DE-7EA34CFEDE1A}.Release|iPhone.Build.0 = Release|Any CPU
 		{8F89B7BB-D572-4E82-87DE-7EA34CFEDE1A}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{8F89B7BB-D572-4E82-87DE-7EA34CFEDE1A}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{966E525E-F095-41E6-8244-95EE4A952E97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{966E525E-F095-41E6-8244-95EE4A952E97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{966E525E-F095-41E6-8244-95EE4A952E97}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{966E525E-F095-41E6-8244-95EE4A952E97}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{966E525E-F095-41E6-8244-95EE4A952E97}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{966E525E-F095-41E6-8244-95EE4A952E97}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{966E525E-F095-41E6-8244-95EE4A952E97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{966E525E-F095-41E6-8244-95EE4A952E97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{966E525E-F095-41E6-8244-95EE4A952E97}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{966E525E-F095-41E6-8244-95EE4A952E97}.Release|iPhone.Build.0 = Release|Any CPU
+		{966E525E-F095-41E6-8244-95EE4A952E97}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{966E525E-F095-41E6-8244-95EE4A952E97}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{F1E79F2F-BDB1-4E29-B523-0D890CFF2FEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1E79F2F-BDB1-4E29-B523-0D890CFF2FEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1E79F2F-BDB1-4E29-B523-0D890CFF2FEA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F1E79F2F-BDB1-4E29-B523-0D890CFF2FEA}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{F1E79F2F-BDB1-4E29-B523-0D890CFF2FEA}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{F1E79F2F-BDB1-4E29-B523-0D890CFF2FEA}.Debug|iPhone.Deploy.0 = Debug|Any CPU
+		{F1E79F2F-BDB1-4E29-B523-0D890CFF2FEA}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{F1E79F2F-BDB1-4E29-B523-0D890CFF2FEA}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{F1E79F2F-BDB1-4E29-B523-0D890CFF2FEA}.Debug|iPhoneSimulator.Deploy.0 = Debug|Any CPU
+		{F1E79F2F-BDB1-4E29-B523-0D890CFF2FEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1E79F2F-BDB1-4E29-B523-0D890CFF2FEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1E79F2F-BDB1-4E29-B523-0D890CFF2FEA}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F1E79F2F-BDB1-4E29-B523-0D890CFF2FEA}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{F1E79F2F-BDB1-4E29-B523-0D890CFF2FEA}.Release|iPhone.Build.0 = Release|Any CPU
+		{F1E79F2F-BDB1-4E29-B523-0D890CFF2FEA}.Release|iPhone.Deploy.0 = Release|Any CPU
+		{F1E79F2F-BDB1-4E29-B523-0D890CFF2FEA}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{F1E79F2F-BDB1-4E29-B523-0D890CFF2FEA}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{F1E79F2F-BDB1-4E29-B523-0D890CFF2FEA}.Release|iPhoneSimulator.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

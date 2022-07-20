@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Plugin.XF.AppInstallHelper
+namespace Plugin.Maui.AppInstallHelper
 {
     public class Configuration
     {

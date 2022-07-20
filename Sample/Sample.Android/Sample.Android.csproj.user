@@ -3,6 +3,7 @@
   <PropertyGroup>
     <AndroidDesignerPreferredTheme>MainTheme</AndroidDesignerPreferredTheme>
     <SelectedDevice>Google Pixel 3</SelectedDevice>
-    <ActiveDebugProfile>Google Pixel 3</ActiveDebugProfile>
+    <ActiveDebugProfile>Google Pixel 3 %28Android 12.0 - API 31%29</ActiveDebugProfile>
+    <SelectedPlatformGroup>PhysicalDevice</SelectedPlatformGroup>
   </PropertyGroup>
 </Project>
